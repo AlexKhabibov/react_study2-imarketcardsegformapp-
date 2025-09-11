@@ -1,15 +1,22 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
 
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
+    const navigate = useNavigate()
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log("Email:", email);
-        console.log("Пароль:", password);
+
+        localStorage.setItem("user", JSON.stringify({
+            email,
+            token: password
+        }));
+
         alert("Форма отправлена!");
+        navigate('/dashboard')
     };
 
     return (
