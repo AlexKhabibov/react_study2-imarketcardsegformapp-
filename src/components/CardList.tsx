@@ -1,7 +1,9 @@
 function CardList() {
-    return ( 
-        
-     );
+    return (
+        <>
+
+        </>
+    );
 }
 
 export default CardList;
