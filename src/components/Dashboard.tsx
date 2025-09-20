@@ -20,6 +20,7 @@ function Dashboard() {
 
     const logOutClick = () => {
 
+        alert('Пользователь вышел из учетной записи')
         navigate('/');
     };
 
@@ -28,8 +29,10 @@ function Dashboard() {
 
         if (!currentUserKey) return;
 
-        localStorage.removeItem(currentUserKey); 
-        localStorage.removeItem("currentUser"); 
+        localStorage.removeItem(currentUserKey);
+        localStorage.removeItem("currentUser");
+
+        alert('Учетная запись удалена')
         navigate('/');
     };
 
@@ -37,7 +40,15 @@ function Dashboard() {
         <>
             <h1>Добро пожаловать, {user.email}</h1>
             <button onClick={logOutClick}>Выйти</button>
-            <button onClick={deleteAccClick}>Удалить учетнуюю запись</button>
+            <button onClick={deleteAccClick}>Удалить учетную запись</button>
+            <br />
+            <br />
+            <br />
+            <h2>Список задач</h2>
+            <input type="text" />
+            <button>Добавить</button>
+            <button>Удалить</button>
+            <ul></ul>
         </>
     );
 }

@@ -5,7 +5,7 @@ function Login() {
 
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -14,6 +14,7 @@ function Login() {
 
         if (storedUser.token === password) {
             localStorage.setItem("currentUser", userKey);
+
             alert("Вход успешен!");
             navigate("/dashboard");
         } else {
