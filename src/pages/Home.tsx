@@ -1,7 +1,9 @@
+import CardList from "../components/CardList";
+
 function Home() {
     return (
         <>
-            <div>Главная страница</div>
+            <CardList />
         </>
     );
 }
