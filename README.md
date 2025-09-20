@@ -333,7 +333,35 @@ localStorage.setItem(userKey, JSON.stringify({ email, token: "fake_token" }));
  - Авторизация/Регистрация → вынесены в отдельный блок в хедере.
  - Карточки → состояние должно хранить данные о корзине и избранном.
 
+# Обновлённая структура
 
+```
+src/
+ ┣ components/
+ ┃ ┣ Header.tsx          # навигация + блок авторизации (ссылка/кнопка на Login или профиль)
+ ┃ ┣ Card.tsx
+ ┃ ┗ CardList.tsx
+ ┣ pages/
+ ┃ ┣ Home.tsx            # каталог (рендер CardList из data)
+ ┃ ┣ Favorites.tsx       # избранное
+ ┃ ┣ Cart.tsx            # корзина
+ ┃ ┣ Login.tsx           # страница входа (мы её делали ранее)
+ ┃ ┗ Dashboard.tsx       # кабинет пользователя
+ ┣ data/
+ ┃ ┗ products.ts         # export const Data = [...]
+ ┣ routes/
+ ┃ ┗ AppRoutes.tsx       # все Route'ы
+ ┣ App.tsx
+ ┣ main.tsx
+```
+
+# Короткие примечания
+
+* `Header` — показывает ссылки: **Главная (/), Корзина (/cart), Избранное (/favorites), Войти (/login)**; если `currentUser` есть — показывает ссылку на **Dashboard (/dashboard)** и кнопку выхода.
+* `Login.tsx` — остаётся как отдельная страница (там логика login/register, установка `currentUser`).
+* `AppRoutes.tsx` — маршруты, например:
+  `/` → `Home`, `/cart` → `Cart`, `/favorites` → `Favorites`, `/login` → `Login`, `/dashboard` → `Dashboard`.
+* `products.ts` — твой массив `Data` с товарами; `CardList` импортирует `Data` и рендерит `Card` для каждого item.
 
 
 
