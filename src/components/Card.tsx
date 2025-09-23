@@ -29,7 +29,7 @@ function Card({ image, name, description, price }: CardProps) {
                         borderRadius: "6px",
                     }}
                 />
-                <h3 style={{ fontSize: "1rem", margin: "8px 0" }}>{name}</h3>
+                <h3 style={{ fontSize: "1rem", margin: "8px 0", color: 'black' }}>{name}</h3>
                 <p
                     style={{
                         fontSize: "0.85rem",
