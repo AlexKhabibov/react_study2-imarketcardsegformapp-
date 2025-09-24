@@ -16,14 +16,14 @@ function Card({ id, img, name, description, price }: IProduct) {
             <p>{price} ₽</p>
 
             {user ? (
-                <>
-                    <button onClick={() => toggleCart(id)}>
-                        {inCart ? "Удалить из корзины" : "В корзину"}
-                    </button>
+                <div style={{display: 'flex', justifyContent: 'center', flexDirection: 'column'}}>
                     <button onClick={() => toggleFavorite(id)}>
-                        {isFavorite ? "Удалить из избранного" : "В избранное"}
+                        {isFavorite ? "❤️" : "🤍"}
                     </button>
-                </>
+                    <button onClick={() => toggleCart(id)}>
+                        {inCart ? "Удалить из корзины" : "🛒"}
+                    </button>
+                </div>
             ) : (
                 <p style={{ fontSize: "12px", color: "gray" }}>
                     Авторизуйтесь, чтобы добавить в корзину или в избранное

@@ -1,9 +1,11 @@
+import CartList from "../components/CartList";
+
 function Cart() {
-    return ( 
+    return (
         <>
-        <div>Корзина</div>
+            <CartList />
         </>
-     );
+    );
 }
 
 export default Cart;

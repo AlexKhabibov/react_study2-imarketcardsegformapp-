@@ -17,7 +17,7 @@ function Login() {
             login(email); // обновляем контекст
 
             alert("Вход успешен!");
-            navigate("/dashboard");
+            navigate("/");
         } else {
             alert("Неверный логин или пароль!");
         }
