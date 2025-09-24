@@ -3,28 +3,28 @@
     "id": 1,
     "img": "https://modano.ru/wa-data/public/shop/products/08/15/1508/images/203949/203949.635x953@2x.jpg",
     "name": "T-shirt",
-    "description": "Longsleeve white cotton 100%",
+    "description": "Longsleeve cotton 100%",
     "price": 25
   },
   {
     "id": 2,
     "img": "https://cdn-sh1.vigbo.com/shops/3903/products/22213761/images/2-cb3949e10991075f3188cc9fc835c76c.jpg",
     "name": "Sweater",
-    "description": "Shortsleeve white cotton 100%",
+    "description": "Shortsleeve cotton 100%",
     "price": 30
   },
   {
     "id": 3,
     "img": "https://cdn-sh1.vigbo.com/shops/3903/products/22445701/images/2-b1340da8fd82d77620107c308a4b9b5a.jpg",
     "name": "Jeans",
-    "description": "Black cotton 100%",
+    "description": "cotton 100%",
     "price": 45
   },
   {
     "id": 4,
     "img": "https://static.shuclothes.com/sig/size:8192/q:100/aHR0cHM6Ly9zaHVjbG90aGVzLmNvbS9zdG9yYWdlLzIzNzk2L9C60L7RgNC-0YLQutCw0Y9f0LbQtdC90YHQul_Rh9C10YDQvTA2NDIuanBn",
     "name": "Jacket",
-    "description": "Red polyester 100%",
+    "description": "polyester 100%",
     "price": 60
   },
   {

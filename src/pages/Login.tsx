@@ -1,19 +1,20 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
 
 function Login() {
-
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const navigate = useNavigate();
+    const { login } = useAuth(); // получаем метод контекста
 
     const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const userKey = email;
-        const storedUser = JSON.parse(localStorage.getItem(userKey) || "{}");
+        const storedUser = JSON.parse(localStorage.getItem(email) || "{}");
 
         if (storedUser.token === password) {
-            localStorage.setItem("currentUser", userKey);
+            localStorage.setItem("currentUser", email);
+            login(email); // обновляем контекст
 
             alert("Вход успешен!");
             navigate("/dashboard");
@@ -22,35 +23,39 @@ function Login() {
         }
     };
 
-
     const handleRegister = () => {
-        const userKey = email;
-        if (localStorage.getItem(userKey)) {
+        if (localStorage.getItem(email)) {
             alert("Пользователь уже существует!");
             return;
         }
 
-        localStorage.setItem(userKey, JSON.stringify({ email, token: password }));
-        localStorage.setItem("currentUser", userKey);
+        const newUser = { email, token: password };
+        localStorage.setItem(email, JSON.stringify(newUser));
+        localStorage.setItem("currentUser", email);
+
+        login(email); // обновляем контекст
 
         alert("Регистрация успешна!");
-        navigate('/dashboard');
+        navigate("/dashboard");
     };
-
 
     return (
         <>
             <form onSubmit={handleLogin}>
-                <input type="email"
+                <input
+                    type="email"
                     placeholder="Email"
                     value={email}
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
-                    required />
-                <input type="password"
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                />
+                <input
+                    type="password"
                     placeholder="Password"
                     value={password}
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
-                    required />
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                />
                 <button type="submit">Войти</button>
                 <button onClick={handleRegister} type="button">Регистрация</button>
             </form>

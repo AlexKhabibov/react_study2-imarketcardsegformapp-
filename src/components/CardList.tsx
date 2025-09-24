@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import Card from "./Card";
 import type { IProduct } from "../types/types";
 
-
 function CardList() {
     const [products, setProducts] = useState<IProduct[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
@@ -37,8 +36,7 @@ function CardList() {
                         setError("Произошла неизвестная ошибка");
                     }
                 }
-            }
-            finally {
+            } finally {
                 if (!cancelled) setLoading(false);
             }
         }
@@ -58,10 +56,7 @@ function CardList() {
             {products.map((product) => (
                 <Card
                     key={product.id}
-                    image={product.img}
-                    name={product.name}
-                    description={product.description}
-                    price={product.price}
+                    {...product}
                 />
             ))}
         </div>
