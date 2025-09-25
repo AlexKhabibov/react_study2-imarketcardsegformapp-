@@ -20,3 +20,7 @@ export interface IAuthContext {
     toggleFavorite: (productId: number) => void;
     toggleCart: (productId: number) => void;
 };
+
+export interface CardInfoProps {
+    product: IProduct;
+}

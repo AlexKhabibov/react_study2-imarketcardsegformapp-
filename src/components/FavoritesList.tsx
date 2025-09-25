@@ -30,7 +30,7 @@ function FavoritesList() {
             {favoriteProducts.length === 0 ? (
                 <p>У вас пока нет избранных товаров.</p>
             ) : (
-                <div style={{ display: "flex", gap: 20, flexWrap: "wrap" }}>
+                <div style={{ display: "flex", gap: 20, flexWrap: "wrap", justifyContent: 'center' }}>
                     {favoriteProducts.map(product => (
                         <Card key={product.id} {...product} />
                     ))}
